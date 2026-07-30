@@ -25,6 +25,7 @@
 | Day | 教程 | 主题 |
 | --- | --- | --- |
 | 1 | [Day 1 — 工具链](./Day%201%20%E2%80%94%20%E5%B7%A5%E5%85%B7%E9%93%BE.md) | Node.js · npm / package.json · Vite · VS Code · DevTools |
+| 2 | [Day 2 — 模块系统 + 心智模型](./Day%202%20%E2%80%94%20%E6%A8%A1%E5%9D%97%E7%B3%BB%E7%BB%9F%20%2B%20%E5%BF%83%E6%99%BA%E6%A8%A1%E5%9E%8B.md) | `import` / `export` · 循环依赖 · 单线程事件循环 · 编译期 vs 运行期 · `UI = f(state)` |
 
 ## 说明
 
