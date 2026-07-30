@@ -26,6 +26,9 @@
 | --- | --- | --- |
 | 1 | [Day 1 — 工具链](./Day%201%20%E2%80%94%20%E5%B7%A5%E5%85%B7%E9%93%BE.md) | Node.js · npm / package.json · Vite · VS Code · DevTools |
 | 2 | [Day 2 — 模块系统 + 心智模型](./Day%202%20%E2%80%94%20%E6%A8%A1%E5%9D%97%E7%B3%BB%E7%BB%9F%20%2B%20%E5%BF%83%E6%99%BA%E6%A8%A1%E5%9E%8B.md) | `import` / `export` · 循环依赖 · 单线程事件循环 · 编译期 vs 运行期 · `UI = f(state)` |
+| 3 | [Day 3 — 变量、原始类型、引用相等](./Day%203%20%E2%80%94%20%E5%8F%98%E9%87%8F%E3%80%81%E5%8E%9F%E5%A7%8B%E7%B1%BB%E5%9E%8B%E3%80%81%E5%BC%95%E7%94%A8%E7%9B%B8%E7%AD%89.md) | `const` / `let` · **金额精度与整数分方案** · `bigint` 主键陷阱 · `null` vs `undefined` · **`Object.is` 与不可变更新的成因** |
+
+> 教程中的所有数值输出均经 Node.js 24 实测核对。
 
 ## 说明
 
