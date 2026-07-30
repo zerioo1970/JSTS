@@ -34,38 +34,18 @@
 
 ```mermaid
 graph LR
-  subgraph dotnet[".NET 世界（你熟悉的）"]
-    direction TB
-    A1[".NET Runtime<br/>运行编译产物"]
-    A2["NuGet<br/>包管理器"]
-    A3[".csproj<br/>项目文件"]
-    A4["packages.lock.json<br/>锁定版本"]
-    A5["bin / obj / packages<br/>下载与编译产物"]
-    A6["MSBuild + IIS Express<br/>编译 + 本地跑起来"]
-    A7["Visual Studio"]
-    A8["VS 调试器"]
-  end
+  H1["🟦 .NET 世界（你熟悉的）"] -.对应.-> H2["🟩 前端世界（今天要装的）"]
+  A1["运行时<br/>.NET Runtime"] -.-> B1["运行时<br/>Node.js"]
+  A2["包管理器<br/>NuGet"] -.-> B2["包管理器<br/>npm"]
+  A3["项目文件<br/>.csproj"] -.-> B3["项目文件<br/>package.json"]
+  A4["版本锁定<br/>packages.lock.json"] -.-> B4["版本锁定<br/>package-lock.json"]
+  A5["下载产物<br/>bin / obj / packages"] -.-> B5["下载产物<br/>node_modules"]
+  A6["编译 + 本地跑<br/>MSBuild + IIS Express"] -.-> B6["编译 + 本地跑<br/>Vite"]
+  A7["编辑器<br/>Visual Studio"] -.-> B7["编辑器<br/>VS Code"]
+  A8["调试器<br/>VS 调试器"] -.-> B8["调试器<br/>浏览器 DevTools"]
 
-  subgraph front["前端世界（今天要装的）"]
-    direction TB
-    B1["Node.js<br/>运行 JS 程序"]
-    B2["npm<br/>包管理器"]
-    B3["package.json<br/>项目文件"]
-    B4["package-lock.json<br/>锁定版本"]
-    B5["node_modules<br/>下载产物"]
-    B6["Vite<br/>编译 + 本地跑起来"]
-    B7["VS Code"]
-    B8["浏览器 DevTools"]
-  end
-
-  A1 -.-> B1
-  A2 -.-> B2
-  A3 -.-> B3
-  A4 -.-> B4
-  A5 -.-> B5
-  A6 -.-> B6
-  A7 -.-> B7
-  A8 -.-> B8
+  style H1 fill:#e8eef8,stroke:#2d4f7a,stroke-width:2px
+  style H2 fill:#e8f4ea,stroke:#2d7a3e,stroke-width:2px
 ```
 
 一张表再过一遍：
@@ -106,17 +86,13 @@ graph LR
 ```mermaid
 graph TD
   N["Node.js<br/>（装在你电脑上）"]
-  N --> T1["Vite<br/>开发服务器 + 打包"]
-  N --> T2["tsc<br/>TypeScript 类型检查"]
-  N --> T3["ESLint / Prettier<br/>代码检查与格式化"]
-  T1 --> O["产出：纯 HTML + CSS + JS<br/>（dist 目录）"]
-  T2 --> O
-  T3 --> O
-  O --> B["浏览器<br/>只认这三样，<br/>完全不知道 Node 存在"]
+  N --> T["① 你的开发工具<br/>Vite · tsc · ESLint · Prettier<br/>（它们本身就是 JS 程序）"]
+  T --> O["② 产出 dist 目录<br/>纯 HTML + CSS + JS"]
+  O --> B["③ 浏览器 / 生产服务器<br/>只认这三样<br/>完全不知道 Node 存在"]
 
-  style N fill:#e8f4ea,stroke:#2d7a3e
-  style B fill:#e8eef8,stroke:#2d4f7a
-  style O fill:#fdf3e0,stroke:#8a6d24
+  style N fill:#e8f4ea,stroke:#2d7a3e,stroke-width:2px
+  style O fill:#fdf3e0,stroke:#8a6d24,stroke-width:2px
+  style B fill:#e8eef8,stroke:#2d4f7a,stroke-width:2px
 ```
 
 **类比**：你写 C# 网站，客户的浏览器不需要装 .NET SDK —— SDK 是**你开发时**用的，客户只收到编译好的结果。Node 在前端扮演的正是「你开发时用的 SDK」这个角色。
@@ -392,8 +368,8 @@ graph TD
   B -->|"有"| C["按 lock 里记的<br/>精确版本安装<br/>👉 团队每个人完全一致"]
   B -->|"没有"| D["按范围解析<br/>装当前最新的<br/>👉 每个人可能不同 ⚠️"]
 
-  style C fill:#e8f4ea,stroke:#2d7a3e
-  style D fill:#fce8e8,stroke:#a33
+  style C fill:#e8f4ea,stroke:#2d7a3e,stroke-width:2px
+  style D fill:#fce8e8,stroke:#a33,stroke-width:2px
 ```
 
 **规则：**
@@ -501,19 +477,19 @@ npx 包名                      # 临时执行
 2. **发布时**：把你的源码打包成浏览器能直接吃的 HTML + CSS + JS（相当于 MSBuild 编译）
 
 ```mermaid
-graph LR
-  S["你的源码<br/>.tsx / .ts / .css"]
+graph TB
+  S["你的源码<br/>src/*.tsx · *.ts · *.css"]
 
-  S --> D["npm run dev<br/>（开发模式）"]
-  D --> D2["本地服务器<br/>localhost:5173"]
-  D2 --> D3["改代码 → 浏览器<br/>立刻变（HMR）"]
+  S -->|"开发时"| D["npm run dev"]
+  S -->|"要上线时"| B["npm run build"]
 
-  S --> B["npm run build<br/>（发布模式）"]
-  B --> B2["dist/ 目录<br/>纯静态文件"]
-  B2 --> B3["丢进 IIS / Nginx<br/>就能上线"]
+  D --> D2["本地服务器 localhost:5173<br/>改代码即时生效（HMR）<br/>不压缩，方便打断点"]
+  B --> B2["dist/ 目录<br/>纯静态文件<br/>已压缩 + 内容哈希"]
+  B2 --> B3["丢进 IIS / Nginx 即可上线<br/>服务器不需要装 Node"]
 
-  style D2 fill:#e8f4ea,stroke:#2d7a3e
-  style B2 fill:#fdf3e0,stroke:#8a6d24
+  style D2 fill:#e8f4ea,stroke:#2d7a3e,stroke-width:2px
+  style B2 fill:#fdf3e0,stroke:#8a6d24,stroke-width:2px
+  style B3 fill:#e8eef8,stroke:#2d4f7a,stroke-width:2px
 ```
 
 > Vite 8（2026 年 3 月发布）把开发和打包统一到了 Rolldown 这一个打包器上。这些内部细节你完全不用关心，知道「Vite 负责编译和本地服务器」就够。
