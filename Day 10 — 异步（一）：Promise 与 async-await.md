@@ -1261,7 +1261,7 @@ console.log('⑪', 外.message, 外.cause.message)
 
 明天是**整个学习计划里最重要的一节**。四个重点：
 
-1. **⚠️ `fetch` 在 404 / 500 时不会 reject** —— 今天第 4.7 节埋的那条，明天讲透。**你的 WebForm 直觉在这里会主动害你**，而且那个报错信息（`Unexpected token '<' in JSON`）会把你引向完全错误的方向
+1. **⚠️ `fetch` 在 404 / 500 时不会 reject** —— 今天第 4.7 节埋的那条，明天讲透。**你的 WebForm 直觉在这里会主动害你**，而且那个报错原文（`Unexpected token '<', "<!DOCTYPE "... is not valid JSON`）会把你引向完全错误的方向
 2. **`fetch` 的完整用法** —— GET / POST / 请求头 / 查询参数 / HTTP 状态码常识
 3. **`AbortController`** —— 真正取消请求（比今天的 `race` 超时更好）
 4. **竞态条件** —— 快速切换筛选条件时，先发的请求后返回，页面显示了旧数据

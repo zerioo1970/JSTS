@@ -504,8 +504,10 @@ setRows(rows.map(r => r.id === id ? { ...r, 状态: '已审核' } : r))
 async function 取数据() {
   const res = await fetch(url)         // 500 也顺利通过，不抛异常
   const data = await res.json()        // 服务器返回 HTML 错误页 → 这里才炸
-  return data                          // 报错信息是 Unexpected token '<' in JSON
-}                                      // 你会以为是解析问题，其实是接口挂了
+  return data
+}
+// 报错原文：SyntaxError: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+// 你会以为是解析问题，其实是接口挂了
 ```
 
 ```js
@@ -520,7 +522,8 @@ async function 取数据() {
 ```
 
 - [ ] **`res.ok`（等价于 status 在 200–299）必须每次检查**，这是硬规矩
-- [ ] 记住那个误导性报错：`Unexpected token '<' in JSON` **≠ 解析问题，= 接口返回了 HTML 错误页**
+- [ ] 记住那个误导性报错：`Unexpected token '<', "<!DOCTYPE "... is not valid JSON`
+      **≠ 解析问题，= 接口返回了 HTML 错误页**
 
 ### `fetch` 其余用法 ★★★
 
@@ -593,7 +596,7 @@ async function 取数据() {
 
 - [ ] 原生 `Date` 的坑（月份从 0 开始、解析行为不一致、时区处理糟糕）
 - [ ] **实务结论：装 `date-fns`**（轻量、按需引入）
-- [ ] `Temporal` 新 API 已开始在浏览器落地，但工作项目里还早，先了解名字
+- [ ] `Temporal` 新 API 只需了解名字 —— **实测 Node 24 尚未提供**，浏览器端也只有部分版本支持，工作项目里至少还要等几年
 
 ### 格式化与数学
 
@@ -779,7 +782,7 @@ default: {
 - [ ] `Cannot read properties of undefined`
 - [ ] `x is not a function`
 - [ ] `Objects are not valid as a React child`
-- [ ] `Unexpected token '<' in JSON` —— **不是解析问题，是接口返回了 HTML 错误页**（回看 Day 11）
+- [ ] `Unexpected token '<', "<!DOCTYPE "... is not valid JSON` —— **不是解析问题，是接口返回了 HTML 错误页**（回看 Day 11）
 - [ ] Hooks 顺序错误（`Rendered fewer hooks than expected`）
 
 ## Day 21 — 项目结构、依赖、Git + 模板沉淀
