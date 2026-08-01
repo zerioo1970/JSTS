@@ -31,6 +31,9 @@
 | 5 | [Day 5 — 函数（上）](./Day%205%20%E2%80%94%20%E5%87%BD%E6%95%B0%EF%BC%88%E4%B8%8A%EF%BC%89.md) | 箭头函数三个坑 · **参数解构 + 默认值** · **`{...rest}` 属性透传** · 传函数 vs 调用函数 · **纯函数** |
 | 6 | [Day 6 — 函数（下）：闭包](./Day%206%20%E2%80%94%20%E5%87%BD%E6%95%B0%EF%BC%88%E4%B8%8B%EF%BC%89%EF%BC%9A%E9%97%AD%E5%8C%85.md) | 整天一个概念 · 计数器工厂 / 防抖 · **闭包捕获的是变量不是快照** · **React 每次渲染新建一套变量** · stale closure 三种修法 |
 | 7 | [Day 7 — 对象](./Day%207%20%E2%80%94%20%E5%AF%B9%E8%B1%A1.md) | **计算属性名（一个 onChange 管整表单）** · 解构五形态 · 展开覆盖顺序 · **浅拷贝 ≠ 深拷贝与嵌套更新** · `structuredClone` vs JSON 往返 |
+| 8 | [Day 8 — 数组（一）：读与变换](./Day%208%20%E2%80%94%20%E6%95%B0%E7%BB%84%EF%BC%88%E4%B8%80%EF%BC%89%EF%BC%9A%E8%AF%BB%E4%B8%8E%E5%8F%98%E6%8D%A2.md) | **`map` 渲染列表** · `filter`/`find`/`some`/`every`（含空数组 `every` 为真的坑）· **`reduce` 三例** · **`sort` 两个坑** |
+| 9 | [Day 9 — 数组（二）：不可变更新五式](./Day%209%20%E2%80%94%20%E6%95%B0%E7%BB%84%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9A%E4%B8%8D%E5%8F%AF%E5%8F%98%E6%9B%B4%E6%96%B0%E4%BA%94%E5%BC%8F.md) | **五式（可自行推导）** · 7 个禁用方法 · `toSorted`/`with` · **`key` 为何不能用 index** · `Map`/`Set` |
+| 10 | [Day 10 — 异步（一）：Promise 与 async/await](./Day%2010%20%E2%80%94%20%E5%BC%82%E6%AD%A5%EF%BC%88%E4%B8%80%EF%BC%89%EF%BC%9APromise%20%E4%B8%8E%20async-await.md) | `Promise` 三态 · **忘写 `await` 的三个症状** · **JS 无法同步等待** · 错误处理与 `cause` · **串行 300ms vs 并行 100ms** · `forEach(async)` 的坑 |
 
 > 教程中的所有数值输出均经 Node.js 24 实测核对。
 
